@@ -7,7 +7,7 @@ export const state = reactive({
     barEvents: [],
 });
 
-const URL = "https://chat-app-wp3k.onrender.com";
+const URL = import.meta.env.NODE_ENV === "production" ? "https://chat-app-wp3k.onrender.com" :  "http://localhost:3000";
 
 const socket = io(URL);
 
