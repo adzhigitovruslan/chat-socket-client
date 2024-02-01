@@ -10,7 +10,7 @@ body {
     overflow-x: hidden;
     color: rgb(48, 43, 43);
     min-width: 320px;
-    min-height: 100dvh;
+    height: 100dvh;
 }
 
 h1,

@@ -84,12 +84,13 @@ const onSelectEmoji = (emoji: string) => {
                             </v-btn>
                         </v-toolbar>
                         <v-divider></v-divider>
-                        <v-list lines="two" class="flex-fill">
-                            <VMessages
-                                v-for="(message, index) in state"
-                                :key="index"
-                                :data="message"
-                                :name="searchQuery.name" />
+                        <v-list lines="two" class="flex-fill chat__list">
+                            <div class="chat-container">
+                                <VMessages
+                                    v-for="(message, index) in state"
+                                    :key="index"
+                                    :data="message" />
+                            </div>
                         </v-list>
                         <v-divider></v-divider>
 
@@ -147,6 +148,9 @@ const onSelectEmoji = (emoji: string) => {
     }
     &__emoji {
         position: absolute;
+    }
+    &__list {
+        height: calc(100svh - 220px);
     }
 }
 .form {
