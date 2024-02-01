@@ -1,5 +1,8 @@
+html {
+    overflow-y: auto !important;
+}
+
 body {
-    background: rgb(99, 37, 169);
     font-size: 16px;
     font-family: Rubik, Roboto, sans-serif;
     padding: 0;
@@ -7,7 +10,7 @@ body {
     overflow-x: hidden;
     color: rgb(48, 43, 43);
     min-width: 320px;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 h1,

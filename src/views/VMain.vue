@@ -18,90 +18,57 @@ const handleClick = () => {
 </script>
 
 <template>
-    <div class="wrap">
-        <div class="container">
-            <h1 class="heading">Join</h1>
-            <form class="form">
-                <div class="group">
-                    <input
-                        type="text"
-                        :name="fields.name"
-                        v-model="fields.name"
-                        placeholder="Username"
-                        class="input"
-                        autoComplete="off"
-                        required />
-                </div>
-                <div class="group">
-                    <input
-                        type="text"
-                        :name="fields.room"
-                        placeholder="Room"
-                        v-model="fields.room"
-                        class="input"
-                        autoComplete="off"
-                        required />
-                </div>
-
-                <div class="group" @click.prevent="handleClick">
-                    <button type="submit" class="button">Sign In</button>
-                </div>
-            </form>
-        </div>
+    <div class="form__wrapper">
+        <v-form class="form" @submit.prevent="handleClick">
+            <h1 class="form__title">Join</h1>
+            <v-card class="mx-auto" max-width="400">
+                <v-card-text>
+                    <v-row>
+                        <v-col>
+                            <v-text-field
+                                label="username"
+                                prepend-icon="fa-solid fa-user-astronaut"
+                                variant="solo-filled"
+                                v-model="fields.name"></v-text-field>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col>
+                            <v-text-field
+                                label="room"
+                                color="primary"
+                                prepend-icon="fa-solid fa-door-open"
+                                variant="solo-filled"
+                                v-model="fields.room"></v-text-field>
+                        </v-col>
+                    </v-row>
+                </v-card-text>
+                <v-card-actions class="d-flex flex-column">
+                    <v-btn type="submit" color="primary">
+                        Enter the room
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-form>
     </div>
 </template>
 
-<style scoped>
-.wrap {
-    width: 100%;
-    height: 100vh;
-}
-.container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.heading {
-    font-size: 32px;
-    line-height: 48px;
-    text-align: center;
-    color: #fff;
-}
-
+<style scoped lang="scss">
 .form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
-    margin-top: 20px;
-}
-
-.group {
-    min-width: 320px;
-    border-radius: 12px;
-    height: 48px;
-    overflow: hidden;
-}
-
-.input {
-    background: rgb(48, 43, 43);
+    max-width: 400px;
     width: 100%;
-    height: 100%;
-    color: #fff;
-    text-indent: 20px;
-    font-size: 16px;
-}
-
-.button {
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    background: #0d49d7;
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
+    &__wrapper {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100svh;
+    }
+    &__title {
+        font-size: 40px;
+        color: rgb(var(--v-theme-primary)) !important;
+        line-height: 2;
+        text-align: center;
+    }
 }
 </style>

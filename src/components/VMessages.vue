@@ -1,29 +1,61 @@
 <script setup lang="ts">
 import { IData } from "../interfaces/data";
-import VMessageItem from "./VMessageItem.vue";
 
-const props = defineProps<{
-    data: IData[];
-    name: string;
+defineProps<{
+    data: IData;
 }>();
 </script>
 
 <template>
-    <div class="messages">
-        <VMessageItem
-            v-for="(message, index) in data"
-            :key="index"
-            :data="message"
-            :name="props.name" />
-    </div>
+    <v-list-item
+        :title="data.user.name"
+        :subtitle="data.message"
+        prepend-avatar="https://randomuser.me/api/portraits/women/8.jpg">
+    </v-list-item>
 </template>
 
 <style scoped>
-.messages {
+.message {
+    width: max-content;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 5px;
+    width: 100%;
 }
 
+.text {
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #fff;
+}
 
+.user {
+    font-size: 14px;
+    color: rgb(176, 176, 176);
+}
+
+.user {
+    align-items: flex-start;
+}
+
+.user .text {
+    background: #514c4c;
+}
+
+.user .user {
+    padding-left: 10px;
+}
+
+.me {
+    align-items: flex-end;
+}
+
+.me .text {
+    background: #0d49d7;
+}
+
+.me .user {
+    padding-right: 10px;
+}
 </style>
